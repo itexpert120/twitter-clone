@@ -16,6 +16,13 @@ export default function RegisterModal() {
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const onToggle = useCallback(() => {
+    if (isLoading) return;
+
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [isLoading, loginModal, registerModal]);
+
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -31,7 +38,6 @@ export default function RegisterModal() {
   }, [registerModal]);
 
   const bodyContent = (
-    // Body Content
     <div className="flex flex-col gap-4">
       <Input
         placeholder="Email"
@@ -60,6 +66,20 @@ export default function RegisterModal() {
     </div>
   );
 
+  const footerContent = (
+    <div className="text-neutral-400 text-center mt-4">
+      <p>
+        Already have an account?{" "}
+        <span
+          onClick={onToggle}
+          className="text-white cursor-pointer hover:underline"
+        >
+          Sign in
+        </span>
+      </p>
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -69,6 +89,7 @@ export default function RegisterModal() {
       onClose={registerModal.onClose}
       onSubmit={onSubmit}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 }
