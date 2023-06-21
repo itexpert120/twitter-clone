@@ -5,6 +5,9 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 import Input from "../Input";
 import Modal from "../Modal";
 import useLoginModal from "@/hooks/useLoginModal";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { signIn } from "next-auth/react";
 
 export default function RegisterModal() {
   const loginModal = useLoginModal();
@@ -27,15 +30,30 @@ export default function RegisterModal() {
     try {
       setIsLoading(true);
 
-      // TODO ADD REGISTER AND LOGIN
+      await axios.post("/api/register", {
+        email,
+        password,
+        username,
+        name,
+      });
+
+      toast.success("Account created!");
+
+      signIn("credentials", {
+        email,
+        password,
+      });
+
+      toast.success("Account Logged in!");
 
       registerModal.onClose();
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong!");
     } finally {
       setIsLoading(false);
     }
-  }, [registerModal]);
+  }, [email, name, password, registerModal, username]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -44,24 +62,28 @@ export default function RegisterModal() {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         disabled={isLoading}
+        type="email"
       />
       <Input
         placeholder="Name"
         onChange={(e) => setName(e.target.value)}
         value={name}
         disabled={isLoading}
+        type="text"
       />
       <Input
         placeholder="Username"
         onChange={(e) => setUsername(e.target.value)}
         value={username}
         disabled={isLoading}
+        type="text"
       />
       <Input
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         disabled={isLoading}
+        type="password"
       />
     </div>
   );

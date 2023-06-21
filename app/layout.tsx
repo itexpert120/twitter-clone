@@ -2,6 +2,8 @@ import "@/app/globals.css";
 import Layout from "@/components/Layout";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
+import { Toaster } from "react-hot-toast";
+import { NextAuthProvider } from "./providers";
 
 export const metadata = {
   title: "Twitter Clone",
@@ -16,9 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster />
         <RegisterModal />
         <LoginModal />
-        <Layout>{children}</Layout>
+        <NextAuthProvider>
+          <Layout>{children}</Layout>
+        </NextAuthProvider>
       </body>
     </html>
   );
