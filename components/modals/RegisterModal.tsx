@@ -84,7 +84,7 @@ export default function RegisterModal() {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Create and Account"
+      title="Create an account"
       actionLabel="Register"
       onClose={registerModal.onClose}
       onSubmit={onSubmit}
