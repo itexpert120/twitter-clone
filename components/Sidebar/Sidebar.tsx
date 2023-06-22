@@ -23,11 +23,13 @@ export default function Sidebar() {
       label: "Notifications",
       href: "/notifications",
       icon: BsBellFill,
+      auth: true,
     },
     {
       label: "Profile",
       href: "/users/123",
       icon: FaUser,
+      auth: true,
     },
   ];
   return (
@@ -45,6 +47,7 @@ export default function Sidebar() {
               href={item.href}
               label={item.label}
               icon={item.icon}
+              auth={item.auth}
             />
           ))}
 
