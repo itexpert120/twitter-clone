@@ -1,7 +1,7 @@
 "use client";
 
 import usePost from "@/hooks/usePost";
-import Loading from "./loading";
+import Loading from "@/app/(site)/loading";
 import Header from "@/components/Header";
 import PostItem from "@/components/post/PostItem";
 import Form from "@/components/Form";

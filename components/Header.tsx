@@ -16,7 +16,7 @@ export default function Header({ label, showBackArrow }: HeaderProps) {
   }, [router]);
 
   return (
-    <div className="border-b border-neutral-800 p-5">
+    <div className="border-b border-neutral-800 p-5 sticky top-0 bg-black/50 backdrop-blur-sm z-40">
       <div className="flex flex-row items-center gap-2">
         {showBackArrow && (
           <BiArrowBack

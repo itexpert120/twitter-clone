@@ -33,37 +33,39 @@ export default function Sidebar() {
     },
   ];
   return (
-    <div className="h-full pr-4 md:pr-6 col-span-1">
-      {/* Items Alignment */}
-      <div className="flex flex-col items-end">
-        {/* Gap between elements & max width */}
-        <div className="space-y-2 lg:w-[230px] mt-2">
-          <SidebarLogo />
+    <div className="pr-4 md:pr-6 col-span-1">
+      <aside className="h-screen sticky top-0">
+        {/* Items Alignment */}
+        <div className="flex flex-col items-end ">
+          {/* Gap between elements & max width */}
+          <div className="space-y-2 lg:w-[230px] mt-2">
+            <SidebarLogo />
 
-          {/* Links */}
-          {items.map((item) => (
-            <SidebarItem
-              key={item.label}
-              href={item.href}
-              label={item.label}
-              icon={item.icon}
-              auth={item.auth}
-            />
-          ))}
+            {/* Links */}
+            {items.map((item) => (
+              <SidebarItem
+                key={item.label}
+                href={item.href}
+                label={item.label}
+                icon={item.icon}
+                auth={item.auth}
+              />
+            ))}
 
-          {/* Auth Buttons */}
-          {currentUser && (
-            <SidebarItem
-              onClick={() => signOut()}
-              icon={BiLogOut}
-              label="Logout"
-            />
-          )}
+            {/* Auth Buttons */}
+            {currentUser && (
+              <SidebarItem
+                onClick={() => signOut()}
+                icon={BiLogOut}
+                label="Logout"
+              />
+            )}
 
-          {/* Tweet Button */}
-          <SidebarTweetButton />
+            {/* Tweet Button */}
+            <SidebarTweetButton />
+          </div>
         </div>
-      </div>
+      </aside>
     </div>
   );
 }

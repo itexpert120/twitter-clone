@@ -3,7 +3,7 @@
 import usePosts from "@/hooks/usePosts";
 
 import PostItem from "@/components/post/PostItem";
-import Loading from "@/app/(site)/users/[userId]/loading";
+import Loading from "@/app/(site)/loading";
 
 interface PostFeed {
   userId?: string;

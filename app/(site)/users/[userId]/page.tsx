@@ -5,7 +5,7 @@ import PostFeed from "@/components/PostFeed";
 import UserBio from "@/components/users/UserBio";
 import UserHero from "@/components/users/UserHero";
 import useUser from "@/hooks/useUser";
-import Loading from "./loading";
+import Loading from "@/app/(site)/loading";
 
 export default function UserView({ params }: { params: { userId: string } }) {
   const userId = params.userId;
