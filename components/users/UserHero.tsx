@@ -1,15 +1,12 @@
 import Image from "next/image";
 
-import useUser from "@/hooks/useUser";
-
 import Avatar from "../Avatar";
 
 interface UserHeroProps {
-  userId: string;
+  fetchedUser: any;
 }
 
-export default function UserHero({ userId }: UserHeroProps) {
-  const { data: fetchedUser } = useUser(userId);
+export default function UserHero({ fetchedUser }: UserHeroProps) {
   return (
     <div className="bg-neutral-700 h-44 relative ">
       {fetchedUser?.coverImage && (
@@ -21,7 +18,7 @@ export default function UserHero({ userId }: UserHeroProps) {
         />
       )}
       <div className="absolute -bottom-16 left-4 flex justify-center items-center">
-        <Avatar userId={userId} isLarge hasBorder />
+        <Avatar profileImage={fetchedUser.profileImage} isLarge hasBorder />
       </div>
     </div>
   );

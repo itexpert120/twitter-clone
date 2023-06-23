@@ -4,13 +4,19 @@ import { useCallback } from "react";
 import Image from "next/image";
 
 interface AvatarProps {
-  userId: string;
+  profileImage?: string;
+  userId?: string;
   isLarge?: boolean;
   hasBorder?: boolean;
 }
 
-export default function Avatar({ userId, isLarge, hasBorder }: AvatarProps) {
-  const { data: fetchedUser } = useUser(userId);
+export default function Avatar({
+  userId,
+  isLarge,
+  hasBorder,
+  profileImage,
+}: AvatarProps) {
+  // const { data: fetchedUser } = useUser(userId);
   const router = useRouter();
 
   const onClick = useCallback(
@@ -41,7 +47,7 @@ export default function Avatar({ userId, isLarge, hasBorder }: AvatarProps) {
         width={isLarge ? 128 : 48}
         alt="avatar"
         onClick={onClick}
-        src={fetchedUser?.profileImage || "/images/placeholderimage.png"}
+        src={profileImage || "/images/placeholderimage.png"}
         className={`
         ${hasBorder ? "border-4 border-black" : ""}
         `}

@@ -50,7 +50,7 @@ export default function Form({ placeholder, isComment, postId }: FormProps) {
       {currentUser ? (
         <div className="flex flex-row gap-4">
           <div>
-            <Avatar userId={currentUser?.id} />
+            <Avatar profileImage={currentUser?.profileImage} />
           </div>
           <div className="w-full">
             <textarea

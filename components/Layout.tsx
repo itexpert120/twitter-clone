@@ -7,7 +7,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="h-screen bg-black">
+    <div className="bg-black h-screen">
       {/* Container */}
       <div className="container h-full mx-auto xl:px-30 max-w-6xl">
         {/* Grid of 4 Columns */}

@@ -23,7 +23,7 @@ export default function UserBio({ userId }: UserBioProps) {
     }
 
     return format(new Date(fetchedUser.createdAt), "MMMM yyyy");
-  }, [fetchedUser.createdAt]);
+  }, [fetchedUser?.createdAt]);
 
   return (
     <div className="border-b border-neutral-800 pb-4">
@@ -45,7 +45,7 @@ export default function UserBio({ userId }: UserBioProps) {
           <p className="text-white text-3xl font-semibold">
             {fetchedUser?.name}
           </p>
-          <p className="text-md text-neutral-500">@{fetchedUser.username}</p>
+          <p className="text-md text-neutral-500">@{fetchedUser?.username}</p>
         </div>
         <div className="flex flex-col mt-4">
           <p className="text-white ">{fetchedUser?.bio}</p>

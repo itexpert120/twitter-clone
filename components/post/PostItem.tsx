@@ -17,7 +17,7 @@ export default function PostItem({ userId, data }: PostItemProps) {
   const router = useRouter();
   const loginModal = useLoginModal();
 
-  const { data: currentUser } = useCurrentUser();
+  // const { data: currentUser } = useCurrentUser();
 
   const goToUser = useCallback(
     (event: any) => {
@@ -53,7 +53,7 @@ export default function PostItem({ userId, data }: PostItemProps) {
       className="border-b border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition"
     >
       <div className="flex flex-row items-start gap-3">
-        <Avatar userId={data.user.id} />
+        <Avatar profileImage={data.user.profileImage} />
         <div>
           <div className="flex flex-row items-center gap-2">
             <p
