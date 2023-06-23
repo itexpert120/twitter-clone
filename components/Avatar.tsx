@@ -8,6 +8,7 @@ interface AvatarProps {
   userId?: string;
   isLarge?: boolean;
   hasBorder?: boolean;
+  onProfilePage?: boolean;
 }
 
 export default function Avatar({
@@ -15,6 +16,7 @@ export default function Avatar({
   isLarge,
   hasBorder,
   profileImage,
+  onProfilePage,
 }: AvatarProps) {
   // const { data: fetchedUser } = useUser(userId);
   const router = useRouter();
@@ -32,11 +34,9 @@ export default function Avatar({
   return (
     <div
       className={`
-
-    hover:opacity-90
-    cursor-pointer
-    relative
-  `}
+        ${onProfilePage ? "hover:opacity-90 cursor-pointer" : ""}
+        relative
+      `}
     >
       <Image
         style={{

@@ -18,7 +18,12 @@ export default function UserHero({ fetchedUser }: UserHeroProps) {
         />
       )}
       <div className="absolute -bottom-16 left-4 flex justify-center items-center">
-        <Avatar profileImage={fetchedUser.profileImage} isLarge hasBorder />
+        <Avatar
+          onProfilePage
+          profileImage={fetchedUser.profileImage}
+          isLarge
+          hasBorder
+        />
       </div>
     </div>
   );
