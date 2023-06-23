@@ -43,7 +43,7 @@ export default function Avatar({ userId, isLarge, hasBorder }: AvatarProps) {
         onClick={onClick}
         src={fetchedUser?.profileImage || "/images/placeholderimage.png"}
         className={`
-        ${hasBorder ? "border-4 border-bla" : ""}
+        ${hasBorder ? "border-4 border-black" : ""}
         `}
       />
     </div>
