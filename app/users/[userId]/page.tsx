@@ -8,7 +8,8 @@ import useUser from "@/hooks/useUser";
 import { TailSpin } from "react-loader-spinner";
 
 export default function UserView({ params }: { params: { userId: string } }) {
-  const { data: fetchedUser, isLoading } = useUser(params.userId as string);
+  const userId = params.userId;
+  const { data: fetchedUser, isLoading } = useUser(userId);
 
   if (isLoading || !fetchedUser) {
     return (
@@ -30,9 +31,9 @@ export default function UserView({ params }: { params: { userId: string } }) {
   return (
     <>
       <Header showBackArrow label={fetchedUser?.name} />
-      <UserHero userId={params.userId as string} />
-      <UserBio userId={params.userId as string} />
-      <PostFeed userId={params.userId} />
+      <UserHero userId={userId} />
+      <UserBio userId={userId} />
+      <PostFeed userId={userId} />
     </>
   );
 }
