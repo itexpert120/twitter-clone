@@ -19,6 +19,9 @@ export async function POST(req: Request) {
       where: {
         email: session.user?.email!,
       },
+      select: {
+        id: true,
+      },
     });
 
     const { body } = (await req.json()) as {

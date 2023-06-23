@@ -53,7 +53,7 @@ export default function PostItem({ userId, data }: PostItemProps) {
       className="border-b border-neutral-800 p-5 cursor-pointer hover:bg-neutral-900 transition"
     >
       <div className="flex flex-row items-start gap-3">
-        <Avatar profileImage={data.user.profileImage} />
+        <Avatar userId={data.user.id} profileImage={data.user.profileImage} />
         <div>
           <div className="flex flex-row items-center gap-2">
             <p

@@ -20,7 +20,7 @@ export default function FollowBar() {
         <div className="flex flex-col gap-6 mt-4">
           {users.map((user: Record<string, any>) => (
             <div key={user.id} className="flex flex-row gap-4 items-center">
-              <Avatar profileImage={user?.profileImage} />
+              <Avatar userId={user.id} profileImage={user?.profileImage} />
               <div className="flex flex-col ">
                 <p className="text-white font-semibold text-sm">{user.name}</p>
                 <p className="text-neutral-400 text-sm">@{user.username}</p>
