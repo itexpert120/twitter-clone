@@ -28,13 +28,13 @@ export default function Avatar({
       const url = `/users/${userId}`;
       router.push(url);
     },
-    [router, userId]
+    [, router, userId]
   );
 
   return (
     <div
       className={`
-        ${onProfilePage ? "hover:opacity-90 cursor-pointer" : ""}
+        ${!onProfilePage ? "hover:opacity-90 cursor-pointer" : ""}
         relative
       `}
     >

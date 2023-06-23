@@ -4,11 +4,11 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 import useLoginModal from "@/hooks/useLoginModal";
 import usePosts from "@/hooks/usePosts";
 import useRegisterModal from "@/hooks/useRegisterModal";
+import useSession from "@/hooks/useSession";
 import axios from "axios";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
 import Button from "./Button";
-import { log } from "console";
 import Avatar from "./Avatar";
 
 interface FormProps {
@@ -21,6 +21,7 @@ export default function Form({ placeholder, isComment, postId }: FormProps) {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
 
+  const { data: sessionId } = useSession();
   const { data: currentUser } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
 
@@ -47,7 +48,7 @@ export default function Form({ placeholder, isComment, postId }: FormProps) {
 
   return (
     <div className="border-b border-neutral-800 px-5 py-2">
-      {currentUser ? (
+      {sessionId ? (
         <div className="flex flex-row gap-4">
           <div>
             <Avatar profileImage={currentUser?.profileImage} />

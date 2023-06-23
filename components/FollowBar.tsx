@@ -2,13 +2,39 @@
 
 import useUsers from "@/hooks/useUsers";
 import Avatar from "./Avatar";
+import { TailSpin } from "react-loader-spinner";
 
 export default function FollowBar() {
-  const { data: users = [] } = useUsers();
+  const { data: users = [], isLoading } = useUsers();
+
+  if (isLoading) {
+    return (
+      <div className="px-6 py-4 hidden lg:block">
+        {/* Background */}
+        <div className="bg-neutral-800 rounded-xl p-4">
+          {/* Label */}
+          <h2 className="text-white text-xl font-semibold">Who to Follow</h2>
+          <div className="mt-4">
+            <TailSpin
+              height="40"
+              width="40"
+              color="lightblue"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (users.length === 0) {
     return null;
   }
+
   return (
     // Container
     <div className="px-6 py-4 hidden lg:block">

@@ -53,7 +53,6 @@ export default function PostItem({ userId, data }: PostItemProps) {
     return formatDistanceToNowStrict(new Date(data.createdAt));
   }, [data.createdAt]);
 
-  console.log("Has Liked: " + hasLiked);
   const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
 
   return (

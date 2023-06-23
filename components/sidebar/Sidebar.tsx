@@ -8,11 +8,11 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarItem from "./SidebarItem";
 import SidebarTweetButton from "./SidebarTweetButton";
 
-import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
+import useSession from "@/hooks/useSession";
 
 export default function Sidebar() {
-  const { data: currentUser } = useCurrentUser();
+  const { data: currentUser } = useSession();
   const items = [
     {
       label: "Home",
@@ -37,7 +37,7 @@ export default function Sidebar() {
       {/* Items Alignment */}
       <div className="flex flex-col items-end">
         {/* Gap between elements & max width */}
-        <div className="space-y-2 lg:w-[230px]">
+        <div className="space-y-2 lg:w-[230px] mt-2">
           <SidebarLogo />
 
           {/* Links */}
