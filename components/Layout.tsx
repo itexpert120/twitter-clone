@@ -16,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
           <Sidebar />
           {/* Actual Content */}
           <div className="col-span-3 lg:col-span-2 border-x border-neutral-800">
-            <div className="h-full flex flex-col justify-between">
+            <div className="h-full">
               {children}
               <Footer />
             </div>
