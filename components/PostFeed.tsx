@@ -1,5 +1,8 @@
 "use client";
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 import usePosts from "@/hooks/usePosts";
 
 import PostItem from "@/components/post/PostItem";
