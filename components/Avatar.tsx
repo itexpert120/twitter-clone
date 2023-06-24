@@ -35,6 +35,7 @@ export default function Avatar({
     <div
       className={`
         ${!onProfilePage ? "hover:opacity-90 cursor-pointer" : ""}
+        ${isLarge ? "h-32 w-32" : "h-12 w-12"}
         relative
       `}
     >
@@ -43,8 +44,8 @@ export default function Avatar({
           objectFit: "cover",
           borderRadius: "100%",
         }}
-        height={isLarge ? 128 : 48}
-        width={isLarge ? 128 : 48}
+        fill
+        sizes="100%"
         alt="avatar"
         onClick={onClick}
         src={profileImage || "/images/placeholderimage.png"}
