@@ -20,6 +20,7 @@ export async function GET(request: Request, res: Response) {
     },
     select: {
       id: true,
+      hasNotification: true,
     },
   });
 

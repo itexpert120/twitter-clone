@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+import { BsDot } from "react-icons/bs";
 import { useRouter, usePathname } from "next/navigation";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useLoginModal from "@/hooks/useLoginModal";
@@ -10,6 +11,7 @@ interface SidebarItemProps {
   icon: IconType;
   onClick?: () => void;
   auth?: boolean;
+  alert?: boolean;
 }
 
 export default function SidebarItem({
@@ -18,6 +20,7 @@ export default function SidebarItem({
   icon: Icon,
   onClick,
   auth,
+  alert,
 }: SidebarItemProps) {
   const currentUrl = usePathname();
   const isActive = href === currentUrl;
@@ -43,6 +46,9 @@ export default function SidebarItem({
         } relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden`}
       >
         <Icon size={28} color="white" />
+        {alert ? (
+          <BsDot className="text-sky-500 absolute -top-4 left-0" size={70} />
+        ) : null}
       </div>
       <div
         className={`${
@@ -51,6 +57,9 @@ export default function SidebarItem({
       >
         <Icon size={24} color="white" />
         <p className="hidden lg:block text-white text-xl">{label}</p>
+        {alert ? (
+          <BsDot className="text-sky-500 absolute -top-4 left-0" size={70} />
+        ) : null}
       </div>
     </div>
   );
