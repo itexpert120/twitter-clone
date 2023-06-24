@@ -1,3 +1,5 @@
+export const dynamic = "auto";
+
 import { NextResponse } from "next/server";
 
 import prisma from "@/lib/prismadb";

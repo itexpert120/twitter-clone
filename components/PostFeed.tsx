@@ -1,8 +1,5 @@
 "use client";
 
-export const revalidate = 0;
-export const dynamic = "force-dynamic";
-
 import usePosts from "@/hooks/usePosts";
 
 import PostItem from "@/components/post/PostItem";
@@ -15,9 +12,10 @@ interface PostFeedProps {
 export default function PostFeed({ userId }: PostFeedProps) {
   const { data: posts = [], isLoading } = usePosts(userId);
 
-  if (isLoading) {
+  if (isLoading || !posts) {
     return <Loading />;
   }
+
   return (
     <>
       {posts.map((post: Record<string, any>) => (
