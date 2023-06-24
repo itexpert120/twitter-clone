@@ -37,7 +37,7 @@ export default function FollowBar() {
 
   return (
     // Container
-    <div className="px-6 py-4 hidden lg:block">
+    <div className="px-6 py-4 hidden lg:block sticky top-0">
       {/* Background */}
       <div className="bg-neutral-800 rounded-xl p-4">
         {/* Label */}
